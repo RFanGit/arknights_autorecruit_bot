@@ -13,7 +13,6 @@ It connects with an emulator via adb and uses OCR to determine the optimal tags 
 - Python 3.x
 - Libraries: `numpy`, `opencv-python`, `pytesseract`
 - **Tesseract OCR**: Install Tesseract separately, as `pytesseract` requires it for text recognition.
-   - You can download Tesseract from [this link](https://github.com/tesseract-ocr/tesseract) and follow the installation instructions for your operating system.
 - Emulator with open adb connection
 
 ## Usage
