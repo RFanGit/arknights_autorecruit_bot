@@ -1,6 +1,8 @@
 # Recruitment Bot
 
-This is an automated recruitment bot that performs recruitment targetting an operator specified by the user. It connects with an emulator via adb and uses OCR to determine the optimal tags for the character, and inputs them in before expediting.
+This is an automated recruitment bot that performs recruitment targetting an operator specified by the user. It is helpful for using expedited plans to target specific robots or five star operators.
+
+It connects with an emulator via adb and uses OCR to determine the optimal tags for the character, and inputs them in before expediting.
 
 ## Features
 - Automates recruitment tasks based on tags and priorities.
@@ -16,13 +18,18 @@ This is an automated recruitment bot that performs recruitment targetting an ope
 
 ### User Specifications
 Specify the user preferences in preferences_gen.py. 
-1. You enter in the primary operator prioritized, a secondary operator if no relevant tags are present for the first, and whether or not to prioritize 4 star guarantees if the primary target is not found, if whether or not to stop the program
+1. You enter in the primary operator prioritized. 
+
+	A. Can specify whether or not to prioritize four star tags if the operator's rarity cannot be guaranteed.
+	B. Can specify whether or not to stop the program if the "robot" tag is found.
+	C. Can specify a secondary target if no tags for the primary target is found.
+
 2. Run preferences_gen.py. It will search for the specified name in the recruitment database, and display the tags. If you are satisfied with this, proceed to main.py
 
 ### Running the bot
 1. Navigate to the following window on the **top left recruitment slot** of an arknights emulator at **resolution 1920x1080**.
 	
-	a. If you are not at this resolution, you will need to customize parameters for image recognition, found in main.py and in tagbuttons.txt (which outlines the location of tags, used for ocr).
+	A. If you are not at this resolution, you will need to customize parameters for image recognition, found in main.py and in tagbuttons.txt (which outlines the location of tags, used for ocr).
 
 ![Screenshot of the Bot in Action](screenshot.png)
 
@@ -30,7 +37,7 @@ Specify the user preferences in preferences_gen.py.
 
 3. The bot will automatically detect tags, calculate the optimal tags for the prioritized operator, click the tags, select the appropriate timer, hit confirm, and expedite. It will take screenshots which will be deleted afterwards.
 	
-	a. If a six star, five star, or one star operator can be guaranteed, the bot stops after displaying possible options, allowing the user to pick the tags specifically
+	A. If a six star, five star, or one star operator can be guaranteed, the bot stops after displaying possible options, allowing the user to pick the tags specifically
 
 ## Customization
 You can adjust your preferences by editing preferences_gen.py and generating a new preferences.json.
