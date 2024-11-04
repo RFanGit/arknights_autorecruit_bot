@@ -1,12 +1,12 @@
 # Recruitment Bot
 
-This is an automated recruitment bot that performs recruitment targetting an operator specified by the user. It is helpful for using expedited plans to target specific robots or five star operators.
+This bot automates recruitment in Arknights, allowing users to target specific operators (like robots or five-star operators) efficiently using expedited plans.
 
 It connects with an emulator via adb and uses OCR to determine the optimal tags for the character, and inputs them in before expediting.
 
 ## Features
-- Automates recruitment tasks based on tags and priorities.
-- Automatically stops recruitment if a six star or five star operator is detected
+- Automates recruitment based on image recognized tags and user priorities.
+- Stops recruitment if guaranteed six star or five star operator tags are detected.
 - (Optional) Prioritizes four star guarantees for yellow certificates if the primary operator's rarity cannot be guaranteed, or or stops recruitment if the Robot tag is detected. Specified by user preferences.
 
 ## Requirements
@@ -17,8 +17,8 @@ It connects with an emulator via adb and uses OCR to determine the optimal tags 
 ## Usage
 
 ### User Specifications
-Specify the user preferences in preferences_gen.py. 
-1. Enter the name of the primary operator at primary_target_name.
+Open `preferences_gen.py` to configure preferences.
+1. Set the `primary_target_name` to specify the primary operator and configure other settings as needed.
 
 	A. Can specify whether or not to prioritize four star tags if the operator's rarity cannot be guaranteed.
 	
@@ -29,31 +29,33 @@ Specify the user preferences in preferences_gen.py.
 2. Run preferences_gen.py. It will search for the specified name in the recruitment database, and displays their tags. If you are satisfied, proceed to main.py
 
 ### Running the bot
-1. Navigate to the following window on the **top left recruitment slot** of an arknights emulator at **resolution 1920x1080**.
-	
-	A. If you are not at this resolution, you will need to customize parameters for image recognition, found in main.py and in tagbuttons.txt (which outlines the location of tags, used for ocr).
+
+1. Open Arknights in an emulator with a screen resolution of **1920x1080**.
+2. Open the **top-left recruitment slot** window in Arknights.
+3. Run `main.py` at the following window to start the bot.
 
 ![Screenshot of the Bot in Action](screenshot.png)
 
-2. **Run the bot** using the python script main.py
+4. The bot will automatically detect tags via screenshots, calculate the optimal tags for the prioritized operator, click the tags, select the appropriate timer, hit confirm, and expedite.
 
-3. The bot will automatically detect tags, calculate the optimal tags for the prioritized operator, click the tags, select the appropriate timer, hit confirm, and expedite. It will take screenshots which will be deleted afterwards.
-	
 	A. If a six star, five star, or one star operator can be guaranteed, the bot stops after displaying possible options, allowing the user to pick the tags specifically.
 
 ## Customization
-You can adjust your preferences by editing preferences_gen.py and generating a new preferences.json.
-- **primary_target**: The name of the main operator to be targeted.
+To update your preferences:
+1. Edit `preferences_gen.py` with your desired settings.
+2. Run `preferences_gen.py` to generate a new `preferences.json` with your updated preferences.
+
+- **primary_target_name**: The name of the main operator to be targeted.
 - **stop_on_robot_tag**: Set this to `true` to stop the bot if the "Robot" tag is found.
 - **target_priority_over_four_star**: If true, then ignore 4 star guarantees in hopes of prioritizing the main target. If false, then if there is no guarantee for the rarity of the main target, try a 4 star tag to obtain yellow certificates.
 
 ### Safety
 
-To avoid automated detection, this bot clicks at slightly random positions with randomly determined times (drawn from a gaussian distribution). If you are worried about being automatically detected, you can increase the time between clicks in main.py.
+To avoid detection, the bot clicks at randomized positions with intervals drawn from a Gaussian distribution. Adjust click times in `main.py` if needed (longer for more safety, smaller for more speed)
 
 ### Alternative Window Sizes
 
-If you are not using the standard screen resolution, you will need to adjust the positions of buttons in main.py. You will also need to generate new tag positions, which are normally found in tagbuttons.txt. Example code for generating new tag positions are found in the tag_positions folder.
+If using a screen resolution other than 1920x1080, adjust button positions in `main.py` and regenerate tag positions in `tagbuttons.txt`. Example code for generating new tag positions are found in the tag_positions folder.
 
 ### Updating Recruitment
 
@@ -61,11 +63,11 @@ Folder recruit_data_gen contains code used to generate recruitment_database.json
 
 ## File Structure
 
-- main.py is the main program that runs the bot. 
-- preferences_gen.py is the program that generates a preferences.json used to prioritize recruitments
-- recruit_calc.py calculates the optional recruitment and uses the preferences to select tags. You can uncomment the code here and send in custom tags to verify the program works for your purposes.
-- tag_ocr.py retrieves text for the tags from the screenshots.
-- folders tag_positions and recruit_data_gen are used for generating the positions of tags (tagbuttons.txt) and the recruitment_database.json (used to calculate recruitments).
+- **main.py**: Runs the recruitment bot.
+- **preferences_gen.py**: Generates a `preferences.json` file based on user-defined recruitment priorities.
+- **recruit_calc.py**: Calculates optimal recruitment tags using preferences. You can uncomment code here to send in custom tags to verify the program works for your purposes.
+- **tag_ocr.py** retrieves text for the tags from the screenshots.
+- Folders **tag_positions** and **recruit_data_gen** generate the positions of tags (tagbuttons.txt) and the recruitment_database.json (used to calculate recruitments).
 
 ## License
 MIT License
