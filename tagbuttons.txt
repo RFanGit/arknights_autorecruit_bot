@@ -1,0 +1,5 @@
+Center: (922, 685), Width: 214, Height: 71
+Center: (669, 683), Width: 214, Height: 71
+Center: (1171, 576), Width: 214, Height: 71
+Center: (921, 576), Width: 214, Height: 71
+Center: (672, 575), Width: 214, Height: 71

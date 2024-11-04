@@ -1,0 +1,12 @@
+{
+    "primary_target": {
+        "name": "PhonoR",
+        "rarity": 1,
+        "priority_over_four_star": false
+    },
+    "secondary_target": {
+        "name": "Vulcan",
+        "rarity": 5
+    },
+    "stop_on_robot_tag": false
+}
