@@ -182,21 +182,21 @@ def process_recruitment_results(matched_tags, six_stars, five_stars, four_stars,
     return 5, []
     
 
-#Example usage
-recruitment_data = load_recruitment_database()
-sample_tags = ["Fast-Redeploy", "DPS"]
-matched_tags, six_star, five_star, four_star, robot, three_star = process_recruitment(sample_tags, recruitment_data)
+# #Example usage
+# recruitment_data = load_recruitment_database()
+# sample_tags = ["Fast-Redeploy", "DPS"]
+# matched_tags, six_star, five_star, four_star, robot, three_star = process_recruitment(sample_tags, recruitment_data)
 
-print("6-Star Combinations:", six_star)
-print("5-Star Guarantee:", five_star)
-print("4-Star Guarantee:", four_star)
-print("Robot Guarantee:", robot)
-print("3-Star Tags:", three_star)
+# print("6-Star Combinations:", six_star)
+# print("5-Star Guarantee:", five_star)
+# print("4-Star Guarantee:", four_star)
+# print("Robot Guarantee:", robot)
+# print("3-Star Tags:", three_star)
 
-print("\n\n")
+# print("\n\n")
 
-flag, result = process_recruitment_results(matched_tags, six_star, five_star, four_star, robot, three_star)
+# flag, result = process_recruitment_results(matched_tags, six_star, five_star, four_star, robot, three_star)
 
-print ("The selected result is ")
-print (flag, ' ', result)
+# print ("The selected result is ")
+# print (flag, ' ', result)
 
