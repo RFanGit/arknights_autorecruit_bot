@@ -18,7 +18,7 @@ It connects with an emulator via adb and uses OCR to determine the optimal tags 
 
 ### User Specifications
 Specify the user preferences in preferences_gen.py. 
-1. Enter the name of the primary operator at primary_target_name = 
+1. Enter the name of the primary operator at primary_target_name.
 
 	A. Can specify whether or not to prioritize four star tags if the operator's rarity cannot be guaranteed.
 	
@@ -26,9 +26,7 @@ Specify the user preferences in preferences_gen.py.
 	
 	C. Can specify a secondary target if no tags for the primary target is found.
 
-2. Run preferences_gen.py. It will search for the specified name in the recruitment database, and displays their tags.
-
-	If you are satisfied, proceed to main.py
+2. Run preferences_gen.py. It will search for the specified name in the recruitment database, and displays their tags. If you are satisfied, proceed to main.py
 
 ### Running the bot
 1. Navigate to the following window on the **top left recruitment slot** of an arknights emulator at **resolution 1920x1080**.
