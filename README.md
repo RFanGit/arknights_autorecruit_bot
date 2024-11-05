@@ -1,6 +1,6 @@
 # Recruitment Bot
 
-This bot automates recruitment in Arknights, allowing users to target specific operators (like robots or five-star operators) efficiently using expedited plans.
+This bot automates recruitment in Arknights, allowing users to target specific operators (like robots or five-star operators) efficiently using a user specified number of expedite plans (default 70).
 
 It connects with an emulator via adb and uses OCR to determine the optimal tags for the character, and inputs them in before expediting.
 
@@ -28,6 +28,8 @@ Open `preferences_gen.py` to configure preferences.
 	C. Can specify a secondary target if no tags for the primary target is found.
 
 2. Run preferences_gen.py. It will search for the specified name in the recruitment database, and displays their tags. If you are satisfied, proceed to main.py
+
+3. In main.py, specify the number of expedites to use.
 
 ### Running the bot
 
