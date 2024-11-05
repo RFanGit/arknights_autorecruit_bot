@@ -6,6 +6,38 @@ import numpy as np
 from tag_ocr import recruit_ocr
 from recruit_calc import process_recruitment, process_recruitment_results, load_recruitment_database, compare_with_recruitment_tags
 
+## The number of expedites to use.
+expedites = 70
+
+##==========Pixel Locations for Emulator Usage==============##
+##The positions of buttons to click for the timer, and recruitment confirmation
+##These can be extracted manually from a screenshot
+timer_pos = [(920, 445), (675, 445), (930, 225), (680, 225)]
+confirm_pos = [1465, 870]
+
+##This file contains the information of where the tags are located
+##This is in the form of rectangles, which are harder to calibate.
+rectangle_data_file = 'tagbuttons.txt'  # Rectangle data file path
+
+##The location of the recruit button we want to use, as well as the expedite button
+recruit_spot = [705, 565]
+
+##The location of confirming an expedite
+expedite_loc = [1440, 765]
+
+##The location of the recruitment skip button
+skip_loc = [1840, 80]
+
+##=========Time Values=========================##
+##Increase these if you are concerned about being detected for botting, or decrease for extra speed.
+#the average time between clicks on the main menu - this is related to server calls
+#so best to be a bit long to not get flagged as a bot
+tag_average_wait_time = 2  # Average wait time in seconds
+menu_average_wait_time = 4 
+recruit_sleep_time = 6 #how long it takes to load a recruit
+recruit_text_time = 6 #how long it takes for the recruit text to load and be skipped
+
+recruitment_data = load_recruitment_database()
 
 def get_active_emulator():
     # Get the list of connected devices
@@ -118,40 +150,12 @@ def timer_confirm(device_id, timer_pos, confirm_pos, nine_timer):
     random_wait_normal(3)
     click_position(device_id, confirm_pos[0], confirm_pos[1])
 
-##The positions of buttons to click for the timer, and recruitment confirmation
-##These can be extracted manually from a screenshot
-timer_pos = [(920, 445), (675, 445), (930, 225), (680, 225)]
-confirm_pos = [1465, 870]
-
-##This file contains the information of where the tags are located
-##This is in the form of rectangles, which are harder to calibate.
-rectangle_data_file = 'tagbuttons.txt'  # Rectangle data file path
-
-##The location of the recruit button we want to use, as well as the expedite button
-recruit_spot = [705, 565]
-
-##The location of confirming an expedite
-expedite_loc = [1440, 765]
-
-##The location of the recruitment skip button
-skip_loc = [1840, 80]
-
-#the average time between clicks on the main menu - this is related to server calls
-#so best to be a bit long to not get flagged as a bot
-menu_average_wait_time = 4 
-recruit_sleep_time = 6 #how long it takes to load a recruit
-recruit_text_time = 6 #how long it takes for the recruit text to load and be skipped
-
-recruitment_data = load_recruitment_database()
-
 # Find an active emulator
 device_id = get_active_emulator()
 if device_id:
     # Connect to the emulator if found
     if connect_to_emulator(device_id):
 
-        
-        expedites = 30
         stop_flag = False
         
         while expedites > 0 and stop_flag == False:
